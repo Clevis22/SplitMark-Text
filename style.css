@@ -1,0 +1,292 @@
+
+
+pre{
+  background-color: #f0f0f0 !important;
+  color:black !important;
+}
+
+.dark-mode .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  height: 3em; /* Adjust this value to match the height of your menu */
+  background-color: #1E1E1E;
+  color: #D4D4D4;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  padding: 1em 1em;
+}
+
+#editor-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-top: 5em; /* Add some space for the menu */
+}
+
+#editor {
+  flex: 1; /* Allow the editor to expand to fill available space */
+  border: none;
+  overflow: auto; /* Enable scrolling within the editor */
+  height:100
+}
+
+#wordCountPopup {
+  background: #E6E6E6;
+  color: #333; 
+  font-family: 'Inter', sans-serif;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  z-index: 100;
+  display: none;
+}
+
+.ql-container {
+    font-size: 18px !important;
+}
+
+.ql-toolbar .ql-picker-label::before,
+.ql-toolbar .ql-picker-item::before {
+  content: none;
+}
+
+.ql-toolbar button svg,
+.ql-toolbar button i {
+  vertical-align: middle;
+}
+
+.ql-toolbar button {
+  line-height: normal;
+}
+
+.ql-toolbar button::before {
+  display: none;
+}
+
+.dark-mode .ql-snow {
+  background-color: #1E1E1E !important;
+}
+
+.dark-mode .ql-snow .ql-toolbar {
+  background-color: #333 !important;
+  border-color: #444 !important;
+}
+
+.dark-mode .ql-snow .ql-stroke {
+  stroke: #fff;
+}
+
+.dark-mode .ql-snow .ql-fill {
+  fill: #fff;
+}
+
+.dark-mode .ql-snow .ql-picker {
+  color: #fff;
+}
+
+/* Editor styles */
+.dark-mode .ql-snow .ql-editor {
+  background-color: #1E1E1E;
+  color: #fff;
+}
+
+.dark-mode .ql-snow .ql-editor.ql-blank::before {
+  color: #666;
+}
+
+/* Selection styles */
+.dark-mode .ql-snow .ql-editor .ql-selection {
+  background-color: #3e51b5;
+  color: #fff;
+}
+
+/* Syntax highlighting styles */
+.dark-mode .ql-snow .ql-syntax {
+  background-color: #1e1e1e;
+  color: #dcdcdc;
+}
+
+/* Drop-down menu styles */
+.dark-mode .ql-snow .ql-picker-options {
+  background-color: #333;
+  border-color: #444;
+}
+
+.dark-mode .ql-snow .ql-picker-item {
+  color: #fff;
+}
+
+.dark-mode .ql-snow .ql-picker-item:hover {
+  background-color: #444;
+}
+
+.dark-mode .ql-snow .ql-picker-item.ql-selected {
+  background-color: #555;
+}
+
+/* Tooltip styles */
+.dark-mode .ql-snow .ql-tooltip {
+  background-color: #333;
+  border-color: #444;
+  color: #fff;
+}
+
+.dark-mode .ql-snow .ql-tooltip input {
+  background-color: #212121;
+  color: #fff;
+  border-color: #444;
+}
+
+/* Modal styles */
+.dark-mode .ql-snow .ql-modal {
+  background-color: #212121;
+  color: #fff;
+}
+
+.dark-mode .ql-snow .ql-modal .ql-modal-content {
+  border-color: #444;
+}
+
+.dark-mode .ql-snow .ql-modal .ql-modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.dark-mode .menu {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  padding: 1em 1em;
+  height: 3em;
+  background-color: #1E1E1E;
+  color: #D4D4D4;
+  font-family: 'Inter', sans-serif;
+  position: fixed; /* Add this line */
+  top: 0; /* Add this line */
+  left: 0; /* Add this line */
+  right: 0; /* Add this line */
+  z-index: 1; /* Add this line */
+}
+
+.dark-mode button {
+  padding: 0.5em 1em;
+  margin: 0 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  background-color: #4A4F55;
+  color: #D4D4D4;
+  font-family: 'Inter', sans-serif;
+}
+
+.dark-mode button:hover {
+  opacity: 0.8;
+}
+
+.dark-mode .menu a {
+  text-decoration: none;
+  color: #007BFF;
+  margin-right: 15px;
+  transition: color 0.3s ease-in-out;
+}
+
+.dark-mode .menu a:hover {
+  color: #0056b3;
+}
+
+.dark-mode select {
+  padding: 0.5em;
+  border: 1px solid #4A4F55;
+  border-radius: 5px;
+  background-color: #4A4F55;
+  color: #D4D4D4;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+}
+
+.dark-mode code{
+  background-color: #2f3236 !important;
+}
+
+.dark-mode pre{
+  background-color: #2f3236 !important;
+  color:white !important;
+}
+
+body.dark-mode {
+  background-color: #1E1E1E;
+  margin:8px;
+}
+
+.dark-mode #wordCountPopup {
+  background: #4A4F55; 
+  color: #D4D4D4; 
+  font-family: 'Inter', sans-serif;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  z-index: 100;
+  display: none;
+}
+
+select:hover {
+  opacity: 0.8;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  padding: 1em 1em;
+  height: 3em;
+  background-color: white;
+  color: #D4D4D4;
+  font-family: 'Inter', sans-serif;
+  position: fixed; /* Add this line */
+  top: 0; /* Add this line */
+  left: 0; /* Add this line */
+  right: 0; /* Add this line */
+  z-index: 1; /* Add this line */
+}
+
+button {
+  padding: 0.5em 1em;
+  margin: 0 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  background-color: #E6E6E6;
+  color: #333;
+  font-family: 'Inter', sans-serif;
+}
+
+.githubLogo{
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle; /* Align with other elements */
+    margin: 0 5px; /* Similar margin to buttons for consistency */
+}
+
+.dark-mode .githubLogo{
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle; /* Align with other elements */
+  margin: 0 5px; /* Similar margin to buttons for consistency */
+}
