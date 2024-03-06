@@ -8,6 +8,7 @@ A minimalist Quill based text editor with markdown support
 * Control Z: Undo
 * Control Y: Redo
 
+```
 ## Supported Markdown Syntax
 
 1. 1 DEPTH
@@ -15,12 +16,17 @@ A minimalist Quill based text editor with markdown support
  1. 2 SUB-DEPTH
  2. 2 SUB-DEPTH
 
+* Bullet
+- Also a bullet
+
 string to **strong** and string to `hightlight`
 
-```
+
 # HEADER
 
-This is ~~code-block~~
+```
+This is a codeblock
+```
 
 TODO
 
@@ -28,11 +34,11 @@ TODO
 [ ] More sleep
 
 
-```
-
-
 ## TODO
 [x] bug fix.
 [ ] play with friends.
 
 Have a ~~super~~ nice day
+
+> Block quote
+```
