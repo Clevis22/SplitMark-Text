@@ -27,14 +27,41 @@ const customModules = {
   toolbar: false
 };
 
+const placeholderTexts = ["Compose an epic...", "Start your journey...", "Unleash your creativity!", "You can use Markdown here...", "Minimal yet powerful..."];
+
 const editor = new Quill('#editor', {
   modules: {
     ...customModules, // Merge custom modules with default modules
   },
-  placeholder: 'Compose an epic...',
+  placeholder: placeholderTexts[Math.floor(Math.random() * placeholderTexts.length)],
   theme: 'snow'
 });
 
+editor.on('text-change', () => {
+  adjustScrollToCursor(); 
+});
+// Enhanced 'selection-change' event to cater to arrow key navigation and new line entries
+editor.on('selection-change', () => {
+  adjustScrollToCursor(); // Ensures the editor scrolls to cursor even without text input
+});
+
+function adjustScrollToCursor() {
+  const range = editor.getSelection();
+  if (range !== null) {
+    const bounds = editor.getBounds(range.index);
+    const editorContainer = document.getElementById('editor-container'); 
+
+    const scrollToPosition = bounds.bottom + editorContainer.scrollTop;
+    const editorHeight = editorContainer.offsetHeight;
+    const offsetBottom = 20; // Define desirable offset from bottom of editor
+
+    if (scrollToPosition > (editorContainer.scrollTop + editorHeight - offsetBottom)) {
+      editorContainer.scrollTop = scrollToPosition - editorHeight + offsetBottom;
+    } else if (bounds.top < editorContainer.scrollTop) {
+      editorContainer.scrollTop = bounds.top;
+    }
+  }
+}
 
 // Load content from localStorage
 const storedContent = localStorage.getItem('editorContent');
@@ -58,6 +85,7 @@ editor.on('text-change', () => {
   const delta = editor.getContents();
   const stringifiedDelta = JSON.stringify(delta);
   localStorage.setItem('editorContent', stringifiedDelta);
+  
 });
 
 const exportFunction = () => {
@@ -143,6 +171,8 @@ function toggleTheme() {
   // Save theme to localStorage
   localStorage.setItem('theme', isDarkMode ? 'dark-mode' : 'light-mode');
 }
+
+
 
 // Attach click events to custom buttons
 //document.querySelector('.ql-save').addEventListener('click', loadFromFile);
