@@ -5,6 +5,8 @@ A minimalist Quill based text editor with markdown support
 ## Keyboard Shortcuts
 * Control Shift C: View word count
 * Control +/-: Edit font size
+* Control Z: Undo
+* Control Y: Redo
 
 ## Supported Markdown Syntax
 
