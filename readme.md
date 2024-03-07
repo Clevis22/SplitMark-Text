@@ -1,6 +1,11 @@
 # SplitMark
 
-A minimalist Quill based text editor with markdown support
+SplitMark- minimalist Quill based text editor with markdown support.
+<br>
+SplitMark is designed to be minimal yet powerful text editor, with a clean and simple user interface paired with the power of markdown and keyboard shortcuts. SplitMark also supports saving and loading files using the.spmk file extension, which is JSON-based and stores the contents of the editor. If you wish to use the real time markdown editor version of SplitMark it can be found at realtime.splitmark.com
+
+## Dependencies
+SplitMark is powerd by [Quill](https://quilljs.com/) and [Quilljs-markdown](https://cloverhearts.github.io/quilljs-markdown/)
 
 ## Keyboard Shortcuts
 * Control Shift C: View word count
@@ -8,37 +13,37 @@ A minimalist Quill based text editor with markdown support
 * Control Z: Undo
 * Control Y: Redo
 
-```
 ## Supported Markdown Syntax
+```
 
 1. 1 DEPTH
 2. 2 DEPTH
  1. 2 SUB-DEPTH
  2. 2 SUB-DEPTH
 
-* Bullet
-- Also a bullet
+* Bullet list
+- Also a bullet list
+**strong**
+`hightlight`
+~~strikethrough~~
+*italic*
 
-string to **strong** and string to `hightlight`
-
-
-# HEADER
+# H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
 
 ```
-This is a codeblock
+This is a code block
 ```
 
-TODO
-
-[x] Sleep
-[ ] More sleep
-
-
-## TODO
-[x] bug fix.
-[ ] play with friends.
-
-Have a ~~super~~ nice day
+Task List
+[x] Checked item
+[ ] Unchecked item
 
 > Block quote
+
+
 ```
