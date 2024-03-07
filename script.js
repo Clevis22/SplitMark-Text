@@ -82,7 +82,7 @@ const exportFunction = () => {
     // Create a link element and set attributes
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
-    link.download = 'my_content_delta.spmk';
+    link.download = 'Editor_Content.spmk';
 
     // Trigger download and revoke temporary URL
     link.click();
@@ -196,3 +196,20 @@ function toggleAlignment() {
       break;
   }
 }
+
+
+
+console.log(
+  `%c ________________________________________
+|  Welcome to SplitMark!                 |
+|  Check out the project on GitHub       |
+|  Clevis22/SplitMark-Text               |
+|________________________________________|
+        \\   ^__^
+         \\  (oo)\\_______
+            (__)\\       )\\/\\
+                ||----w |
+                ||     ||
+  ^----^----^------^-------^--^--`,
+  "font-family: monospace;"
+);
