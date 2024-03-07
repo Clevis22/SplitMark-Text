@@ -154,8 +154,45 @@ function toggleTheme() {
   localStorage.setItem('theme', isDarkMode ? 'dark-mode' : 'light-mode');
 }
 
+// Define keyboard shortcut keys
+const toggleAlignKey = 74; // J
 
+// Add event listener for keyboard shortcuts
+document.addEventListener('keydown', (event) => {
+  const isCommandPressed = event.ctrlKey || event.metaKey;
 
-// Attach click events to custom buttons
-//document.querySelector('.ql-save').addEventListener('click', loadFromFile);
-//document.querySelector('.ql-export').addEventListener('click', exportFunction);
+  if (isCommandPressed && event.keyCode === toggleAlignKey) {
+    event.preventDefault(); // Prevent default behavior
+    toggleAlignment();
+  }
+});
+
+// Function to align text
+function alignText(alignment) {
+  const range = editor.getSelection();
+  if (range) {
+    // If no text is selected, select the entire line
+    if (range.length === 0) {
+      const [line] = editor.getLine(range.index);
+      const lineLength = line.length();
+      editor.setSelection(range.index, lineLength);
+    }
+
+    editor.formatLine(range.index, range.length, 'align', alignment);
+  }
+}
+
+// Function to toggle alignment
+let currentAlignment = ''; // Default alignment
+function toggleAlignment() {
+  switch (currentAlignment) {
+    case '':
+      alignText('center');
+      currentAlignment = 'center';
+      break;
+    case 'center':
+      alignText('');
+      currentAlignment = '';
+      break;
+  }
+}
