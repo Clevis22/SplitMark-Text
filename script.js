@@ -27,7 +27,7 @@ const customModules = {
   toolbar: false
 };
 
-const placeholderTexts = ["Compose an epic...", "Start your journey...", "Unleash your creativity!", "You can use Markdown here...", "Minimal yet powerful..."];
+const placeholderTexts = ["Compose an epic...", "Start your journey...", "Unleash your creativity!", "You can use Markdown here...", "Minimal yet powerful...", "Markdown Superpowers...", "Write your story...", "Write your thoughts...", "Write your ideas...", "Write your dreams...","Support open source...","Compose a story...", "Write some  notes..."];
 
 const editor = new Quill('#editor', {
   modules: {

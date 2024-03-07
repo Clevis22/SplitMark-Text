@@ -1,4 +1,10 @@
 
+font-face {
+  font-family: 'Inter';
+  src: url('Inter/static/Inter-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 pre{
   background-color: #f0f0f0 !important;
@@ -242,6 +248,7 @@ body.dark-mode {
   border-radius: 5px;
   z-index: 100;
   display: none;
+  
 }
 
 select:hover {
