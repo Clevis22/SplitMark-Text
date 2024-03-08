@@ -67,7 +67,6 @@ editor.on('text-change', () => {
   const delta = editor.getContents();
   const stringifiedDelta = JSON.stringify(delta);
   localStorage.setItem('editorContent', stringifiedDelta);
-  
 });
 
 const exportFunction = () => {

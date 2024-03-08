@@ -262,7 +262,7 @@ select:hover {
   flex-wrap: nowrap;
   align-items: stretch;
   padding: 1em 1em;
-  height: 3em;
+  height: 1.5em;
   background-color: white;
   color: #D4D4D4;
   font-family: 'Inter', sans-serif;
@@ -386,12 +386,12 @@ button {
 /* Add a media query for small screens */
 @media only screen and (max-width: 600px) {
     button {
-        padding: 0.3em 0.5em; 
-        font-size: 0.7rem; 
+        padding: 0.4em 0.6em; 
+        font-size: 0.8rem; 
     }
   .toggle-mode {
-      padding: 0.3em 0.5em; 
-      font-size: 0.7rem; 
+      padding: 0.4em 0.6em; 
+      font-size: 0.8rem; 
   }
 
   .githubLogoContainer{
@@ -399,12 +399,12 @@ button {
   }
 
     .dark-mode button {
-        padding: 0.3em 0.5em; 
-        font-size: 0.7rem; 
+        padding: 0.4em 0.6em; 
+        font-size: 0.8rem; 
     }
   .dark-mode .toggle-mode {
-      padding: 0.3em 0.5em; 
-      font-size: 0.7rem; 
+      padding: 0.4em 0.6em; 
+      font-size: 0.8rem; 
   }
 
 }

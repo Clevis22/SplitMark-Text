@@ -11,6 +11,7 @@ SplitMark is powerd by [Quill](https://quilljs.com/) and [Quilljs-markdown](http
 * Control Shift C: View word count
 * Control +/-: Edit font size
 * Control J: Toggle center/left align
+* Control U: Underline
 * Control Z: Undo
 * Control Y: Redo
 
