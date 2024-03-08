@@ -27,7 +27,7 @@ const customModules = {
   toolbar: false
 };
 
-const placeholderTexts = ["Compose an epic...", "Start your journey...", "Unleash your creativity!", "You can use Markdown here...", "Minimal yet powerful...", "Markdown Superpowers...", "Write your story...", "Write your thoughts...", "Write your ideas...", "Write your dreams...","Support open source...","Compose a story...", "Write some  notes..."];
+const placeholderTexts = ["Compose an epic...", "Start your journey...", "Unleash your creativity!", "You can use Markdown here...", "Minimal yet powerful...", "Markdown Superpowers...", "Write your story...", "Write your thoughts...", "Write your ideas...", "Write your dreams...","Support open source...","Compose a story...", "Write some notes...","Draft your masterpiece...","Craft your next adventure...","Empty webpage or powerful editor?","Write something punny...",];
 
 const editor = new Quill('#editor', {
   modules: {
@@ -196,6 +196,54 @@ function toggleAlignment() {
   }
 }
 
+editor.on('text-change', function(delta, oldDelta, source) {
+    if (source === 'user') {
+        const text = editor.getText();
+        const underlineRegex = /(?<![\`\~\*\#\|\_])==(.*?)==(?![\`\~\*\#\|\_])/g;
+        let match;
+        const ranges = [];
+
+        while ((match = underlineRegex.exec(text)) !== null) {
+            const startIndex = match.index;
+            const endIndex = match.index + match[0].length;
+            const content = match[1];
+
+            // Remove the delimiters
+            editor.deleteText(startIndex, 2);
+            editor.deleteText(endIndex - 4, 2); // Adjusted to delete the closing '=='
+
+            ranges.push({
+                index: startIndex,
+                length: content.length
+            });
+
+            underlineRegex.lastIndex = endIndex - 4;
+        }
+
+        ranges.forEach(range => {
+            editor.formatText(range.index, range.length, { 'underline': true });
+        });
+
+        // Check for new text entered outside the tags
+        const currentSelection = editor.getSelection();
+        const cursorIndex = currentSelection ? currentSelection.index : 0;
+
+            // Remove underline formatting for new text outside tags
+            editor.formatText(cursorIndex, 0, { 'underline': false });
+        
+    }
+});
+
+// Function to check if the cursor is inside '== =='
+function isInsideUnderlineTags(text, cursorIndex) {
+    const openTagRegex = /(?<![\`\~\*\#\|\_])==/g;
+    const closeTagRegex = /==(?![\`\~\*\#\|\_])/g;
+
+    const openMatch = openTagRegex.exec(text);
+    const closeMatch = closeTagRegex.exec(text);
+
+    return openMatch && closeMatch && openMatch.index < cursorIndex && cursorIndex < closeMatch.index;
+}
 
 
 console.log(

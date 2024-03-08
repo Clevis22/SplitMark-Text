@@ -24,11 +24,14 @@ SplitMark is powerd by [Quill](https://quilljs.com/) and [Quilljs-markdown](http
  2. 2 SUB-DEPTH
 
 * Bullet list
-- Also a bullet list
-**strong**
+- Bullet list
+**bold**
+__bold__
 `hightlight`
 ~~strikethrough~~
 *italic*
+_italic_
+==underline==
 
 # H1
 ## H2
