@@ -47,6 +47,7 @@ Task List
 [ ] Unchecked item
 
 > Block quote
-![link text](link url)
+[link text](link URL)
+![image alt](image URL)
 
 ```

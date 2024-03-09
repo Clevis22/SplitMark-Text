@@ -11,33 +11,18 @@ pre{
   color:black !important;
 }
 
-.dark-mode .menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 0;
-  height: 3em; /* Adjust this value to match the height of your menu */
-  background-color: #1E1E1E;
-  color: #D4D4D4;
-  font-family: 'Inter', sans-serif;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-  align-items: stretch;
-  padding: 1em 1em;
-}
+
 
 #editor-container {
-  height: 80vh; /* Set a fixed height of 80% of the viewport height */
+  height: 90vh; /* Set a fixed height of 80% of the viewport height */
   overflow-y: auto;
-  margin-top: 4em;
+  margin-top: 3em;
   border-color: white;
   
 }
 
 #editor {
-  height: 80vh; /* Set a fixed height of 80% of the viewport height */
+  height: 90vh; /* Set a fixed height of 80% of the viewport height */
   overflow-y: auto;
   border-color: white;
   
@@ -173,8 +158,8 @@ pre{
   justify-content: space-between;
   flex-wrap: nowrap;
   align-items: stretch;
-  padding: 1em 1em;
-  height: 3em;
+  padding: .8em .8em;
+  height: 1.5em;
   background-color: #1E1E1E;
   color: #D4D4D4;
   font-family: 'Inter', sans-serif;
@@ -261,7 +246,7 @@ select:hover {
   justify-content: space-between;
   flex-wrap: nowrap;
   align-items: stretch;
-  padding: 1em 1em;
+  padding: .8em .8em;
   height: 1.5em;
   background-color: white;
   color: #D4D4D4;
@@ -369,14 +354,14 @@ button {
 }
 
 .dark-mode #editor-container {
-  height: 80vh; /* Set a fixed height of 80% of the viewport height */
+  height: 90vh; /* Set a fixed height of 80% of the viewport height */
   overflow-y: auto;
-  margin-top: 4em;
+  margin-top: 3em;
   border-color: #1E1E1E !important;
 }
 
 .dark-mode #editor {
-  height: 80vh; /* Set a fixed height of 80% of the viewport height */
+  height: 90vh; /* Set a fixed height of 80% of the viewport height */
   overflow-y: auto;
   border-color: #1E1E1E !important;
   

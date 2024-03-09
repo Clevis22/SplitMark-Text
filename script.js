@@ -14,10 +14,7 @@ const customModules = {
         pattern: /`(.+?)`/g,
       },
       link: {
-        pattern: /\[(.+?)\]\((.+?)\)/g,
-      },
-      image: {
-        pattern: /!\[(.+?)\]\((.+?)\)/g,
+        pattern: /(?<!!)\[(.+?)\]\((.+?)\)/g,
       },
       list: {
         pattern: /^(\\d+\\.\\s|\\-\\s)/g,
@@ -244,6 +241,38 @@ function isInsideUnderlineTags(text, cursorIndex) {
 
     return openMatch && closeMatch && openMatch.index < cursorIndex && cursorIndex < closeMatch.index;
 }
+
+function renderImageEmbed(src) {
+  const range = editor.getSelection();
+  editor.insertEmbed(range.index, 'image', src, 'user');
+  editor.setSelection(range.index + 1, 0);
+}
+
+editor.on('text-change', function(delta, oldDelta, source) {
+  if (source === 'user') {
+    const text = editor.getText();
+    const imageRegex = /!\[(?:(?<alt>.*?)|\s*)\]\((?<src>.*?)\)/g;
+    let match;
+    const ranges = [];
+
+    while ((match = imageRegex.exec(text)) !== null) {
+      const startIndex = match.index;
+      const endIndex = match.index + match[0].length;
+      const src = match.groups.src;
+
+      ranges.push({
+        index: startIndex,
+        length: endIndex - startIndex,
+        src,
+      });
+    }
+
+    ranges.forEach(range => {
+      editor.deleteText(range.index, range.length);
+      renderImageEmbed(range.src);
+    });
+  }
+});
 
 
 console.log(
