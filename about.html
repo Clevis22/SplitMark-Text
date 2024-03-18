@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About SplitMark</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    #editor-container{
+      font-family: 'Inter';
+    }
+    body.dark-mode #editor-container p,
+    body.dark-mode #editor-container h1,
+    body.dark-mode #editor-container h2,
+    body.dark-mode #editor-container h3,
+    body.dark-mode #editor-container h4,
+    body.dark-mode #editor-container h5,
+    body.dark-mode #editor-container h6,
+    body.dark-mode #editor-container ul,
+    body.dark-mode #editor-container li {
+      color: #D4D4D4; /* Adjust the color as needed */
+    }
+  </style>
+</head>
+<body>
+  <div class="menu">
+    <div>
+      <button onclick="window.open('index.html', '_self')">Home</button>
+      <button onclick="window.open('https://github.com/Clevis22/SplitMark-Text', '_self')">GitHub</button>
+      <!-- Placeholder for consistency, won’t perform actions like in index.html -->
+      <button style="visibility: hidden;">Save</button>
+      <button style="visibility: hidden;">Load</button>
+    </div>
+  </div>
+
+  <div id="editor-container">
+    <h1 style="text-align:center;">SplitMark</h1>
+    <p style="text-align:center;">No login, no ads just minimalist text editing with markdown superpowers.</p>
+    <h2>About</h2>
+    <p>SplitMark is a minimalist Quill-based text editor with markdown support. It is designed to be minimal yet powerful, with a clean and simple user interface paired with the capability of markdown and keyboard shortcuts. SplitMark gives you all the power of WYSIWYG rich text editors in an online minimalist package.</p>
+    <h2>Dependencies</h2>
+    <p>SplitMark is powered by <a href="https://quilljs.com/">Quill</a> and <a href="https://cloverhearts.github.io/quilljs-markdown/">Quilljs-markdown</a>.</p>
+    <h2>Keyboard Shortcuts</h2>
+    <ul>
+     <li>Control Shift C: View word count</li>
+     <li>Control +/-: Edit font size</li>
+     <li>Control J: Toggle center/left align</li>
+     <li>Control U: Underline</li>
+     <li>Control B: Bold</li>
+     <li>Control I: Italic</li>
+     <li>Control Z: Undo</li>
+     <li>Control Y: Redo</li>
+    </ul>
+    <h2>Supported Markdown Syntax</h2>
+    <p>SplitMark supports the following markdown syntax:</p>
+    <ul>
+     <li>Headings: # (H1-H6)</li>
+     <li>Bullet lists: * and - </li>
+     <li>Numbered lists:<br>
+      1. 1 DEPTH<br>
+      2. 2 DEPTH<br>
+      &nbsp 1. 2 SUB-DEPTH<br>
+      &nbsp 2. 2 SUB-DEPTH</li>
+     <li>Bold: **bold** and __bold__</li>
+     <li>Highlight: `highlight`</li>
+     <li>Strikethrough: ~~strikethrough~~</li>
+     <li>Italic: *italic* and _italic_</li>
+     <li>Underline: ==underline==</li>
+     <li>Code block: ```code block```</li>
+     <li>Task list: [] and [x]</li>
+     <li>Block quote: > </li>
+     <li>Link: [text](source)</li>
+     <li>Image: ![alt text](source)</li>
+    </ul>
+
+    <h2>License</h2>
+    <p>SplitMark is an open source project licensed under the GPL-3.0 license. You can find the full source code on <a href="https://github.com/Clevis22/SplitMark-Text">GitHub</a>.
+   </div>
+
+  <script>
+    // Check theme from localStorage and apply before the page is rendered
+    document.addEventListener('DOMContentLoaded', () => {
+      const storedTheme = localStorage.getItem('theme');
+      if (storedTheme) {
+        document.body.classList.add(storedTheme);
+      }
+    });
+  </script>
+</body>
+</html>
