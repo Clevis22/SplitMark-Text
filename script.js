@@ -1,8 +1,5 @@
 Quill.register('modules/QuillMarkdown', QuillMarkdown);
-var icons = Quill.import('ui/icons');
-icons['bold'] = '<i class="fa fa-bold" aria-hidden="true"></i>';
-icons['save'] = '<i class="fa fa-save" aria-hidden="true"></i>'; // Add this line
-icons['export'] = '<i class="fa fa-file-export" aria-hidden="true"></i>'; // Add this line
+
 const customModules = {
   QuillMarkdown: {
     ignoreTags: [],
