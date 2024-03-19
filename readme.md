@@ -13,9 +13,9 @@ How It Works
 
 At its core, SplitMark is a Quill-based text editor. Quill is a free, open-source JavaScript library that allows developers to create rich text editors for the web. Quill also supports third-party modules such as Quilljs-Markdown, which SplitMark uses, along with custom methods to add markdown support to Quill.
 
-All editing on SplitMark happens on the client side, meaning your text never leaves your browser unless you save the content to your device. Saves are stored using the .spmk file extension, which is JSON-based and stores the editor's content. Local storage is also used to store editor content in your browser between sessions.
+All editing on SplitMark happens on the client side, meaning your text never leaves your browser unless you save the content to your device. Saves are stored using the .spmk file extension, which is JSON-based and stores the editor's content using quill-delta. Local storage is also used to store editor content in your browser between sessions.
 
-All of this combined with a minimal ui with light/dark themes, powerful keybord shortcuts and a privacy focussed mentality creates a distraction free yet powerful online writing experience.
+All of this, combined with a minimal user interface containing light and dark themes, powerful keyboard shortcuts, and a privacy-focused mentality, creates a distraction-free yet powerful online writing experience.
 
 Dependencies
 ------------
