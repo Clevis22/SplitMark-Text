@@ -11,6 +11,32 @@
     #editor-container{
       font-family: 'Inter';
     }
+
+    .splitmark-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 auto;  /* Center the logo horizontally */
+      width: 170px;  /* Set a width for the container */
+      padding: 10px;  /* Add padding for the border */
+      border: 2px solid black;  /* Define a border style, width, and color */
+      background-color: white;  /* Set a background color */
+    }
+
+    .splitmark-text {
+      color: #000;
+      font-size: 2em;
+      line-height: 1;
+      margin: .2em;
+    }
+
+    .splitmark-text span {
+      margin-left: 1px;
+      background-color: black;
+      color: white;
+      padding: 5px;
+    }
+    
     body.dark-mode #editor-container p,
     body.dark-mode #editor-container h1,
     body.dark-mode #editor-container h2,
@@ -36,8 +62,11 @@
   </div>
 
   <div id="editor-container">
-    <h1 style="text-align:center;">SplitMark</h1>
-    <p style="text-align:center;">No login, no ads just minimalist text editing with markdown superpowers.</p>
+    <div class="splitmark-container">
+      <span class="splitmark-text"><span>Split</span>&nbsp;<strong>Mark</strong></span>
+    </div>
+    
+    <h3 style="text-align:center;">No login, no ads just minimalist text editing with markdown superpowers.</h3>
     <h2>About</h2>
     <p>SplitMark is a minimalist Quill-based text editor with markdown support. It is designed to be minimal yet powerful, with a clean and simple user interface paired with the capability of markdown and keyboard shortcuts. SplitMark gives you all the power of WYSIWYG rich text editors in an online minimalist package.</p>
     <h2>How It Works</h2>
@@ -79,6 +108,13 @@
      <li>Image: ![alt text](source)</li>
     </ul>
 
+    <h2>Socials</h2>
+    <ul>
+      <li><a href="https://didthis.app/user/Clevis22/project/v973j">Didthis</a></li>
+      <li><a href="https://twitter.com/SplitMark1">Twitter</a></li>
+      <li><a href="https://bsky.app/profile/splitmark.com">Bluesky</a></li>
+    </ul>
+    
     <h2>License</h2>
     <p>SplitMark is an open source project licensed under the GPL-3.0 license. You can find the full source code on <a href="https://github.com/Clevis22/SplitMark-Text">GitHub</a>.
    </div>

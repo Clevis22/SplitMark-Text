@@ -11,7 +11,9 @@ pre{
   color:black !important;
 }
 
-
+#editor-container a{
+  color:#0093ee;
+}
 
 #editor-container {
   height: 90vh; /* Set a fixed height of 80% of the viewport height */

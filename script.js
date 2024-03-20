@@ -29,7 +29,7 @@ const editor = new Quill('#editor', {
   },
   placeholder: placeholderTexts[Math.floor(Math.random() * placeholderTexts.length)],
   theme: 'snow'
-  
+
 });
 
 editor.on('selection-change', (range, oldRange, source) => {
@@ -93,7 +93,7 @@ const exportFunction = () => {
 const loadFromFile = () => {
   const fileInput = document.createElement('input');
   fileInput.type = 'file';
-  fileInput.accept = '.spmk'; // Accept only JSON files
+  fileInput.accept = '.spmk, .txt'; // Accept .spmk and .txt files
 
   fileInput.addEventListener('change', (event) => {
     const file = event.target.files[0];
@@ -103,11 +103,14 @@ const loadFromFile = () => {
     }
 
     const reader = new FileReader();
-
     reader.onload = (event) => {
       try {
-        const deltaObject = event.target.result;
-        loadFunction(deltaObject); // Call the existing loadFunction
+        const content = event.target.result;
+        if (file.name.endsWith('.spmk')) {
+          loadFunction(content); // Call the existing loadFunction for .spmk
+        } else if (file.name.endsWith('.txt')) {
+          editor.setText(content); // Directly set the editor's content for .txt
+        }
       } catch (error) {
         console.error("Error loading content:", error);
         // You can display an error message to the user here
@@ -135,7 +138,6 @@ const loadFunction = (deltaObject) => {
     // You can display an error message to the user here
   }
 };
-
 
 function toggleTheme() {
   document.body.classList.toggle('dark-mode');
@@ -224,7 +226,7 @@ editor.on('text-change', function(delta, oldDelta, source) {
 
             // Remove underline formatting for new text outside tags
             editor.formatText(cursorIndex, 0, { 'underline': false });
-        
+
     }
 });
 
