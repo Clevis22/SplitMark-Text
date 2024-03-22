@@ -41,39 +41,59 @@ editor.on('selection-change', (range, oldRange, source) => {
 
 // Initialize the current tab
 let currentTab = 1;
+
 // Function to toggle between tabs
 function toggleTab() {
-  // Step 1: Save the current editor's content in local storage
-  const currentEditorContents = editor.getContents();
-  localStorage.setItem(`editorContentTab${currentTab}`, JSON.stringify(currentEditorContents));
-  // Step 2: Toggle to the next tab
-  currentTab = currentTab % 3 + 1; // Cycle through tabs 1 -> 2 -> 3 -> 1...
-  // Step 3: Load the content of the new tab from local storage, if available
-  const storedContent = localStorage.getItem(`editorContentTab${currentTab}`);
-  if (storedContent) {
-    editor.setContents(JSON.parse(storedContent)); // Load the stored content into the editor
-  } else {
-    editor.setText(''); // If no content stored, initialize the editor with empty text
+  try {
+    // Save the current editor's content in local storage
+    const currentEditorContents = editor.getContents();
+    localStorage.setItem(`editorContentTab${currentTab}`, JSON.stringify(currentEditorContents));
+
+    // Toggle to the next tab
+    currentTab = currentTab % 3 + 1; // Cycle through tabs 1 -> 2 -> 3 -> 1...
+
+    // Load the content of the new tab from local storage, if available
+    const storedContent = localStorage.getItem(`editorContentTab${currentTab}`);
+    if (storedContent) {
+      editor.setContents(JSON.parse(storedContent)); // Load the stored content into the editor
+    } else {
+      editor.setText(''); // If no content stored, initialize the editor with empty text
+    }
+
+    document.getElementById("toggleTab").textContent = `Tab: ${currentTab}`;
+  } catch (error) {
+    console.error("Error while toggling tabs:", error);
+    // Optionally, you can display an error message to the user
+    alert("An error occurred while toggling tabs. Please enable local storage.");
   }
-  // Optionally, update the UI to reflect the current tab
-  // For example, displaying the current tab number somewhere on the page
-  document.getElementById("toggleTab").textContent = `Tab:  ${currentTab}`;
-  //console.log(`Switched to tab ${currentTab}`);
 }
+
 // Load the initial content of the first tab upon starting
-const initialStoredContent = localStorage.getItem(`editorContentTab${currentTab}`);
-if (initialStoredContent) {
-  editor.setContents(JSON.parse(initialStoredContent));
+try {
+  const initialStoredContent = localStorage.getItem(`editorContentTab${currentTab}`);
+  if (initialStoredContent) {
+    editor.setContents(JSON.parse(initialStoredContent));
+  }
+} catch (error) {
+  console.error("Error while loading initial content:", error);
+  // Optionally, you can display an error message to the user
+  alert("An error occurred while loading the initial content. Please enable local storage.");
 }
 
 // Load theme from localStorage
-const storedTheme = localStorage.getItem('theme');
-if (storedTheme) {
-  if(storedTheme === 'dark-mode') {
-    document.body.classList.add('dark-mode');
-  } else {
-    document.body.classList.remove('dark-mode');
+try {
+  const storedTheme = localStorage.getItem('theme');
+  if (storedTheme) {
+    if (storedTheme === 'dark-mode') {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
   }
+} catch (error) {
+  console.error("Error while loading theme:", error);
+  // Optionally, you can display an error message to the user
+  alert("An error occurred while loading the theme. Please enable local storage.");
 }
 
 // Save content to localStorage on text-change
