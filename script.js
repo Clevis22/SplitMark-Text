@@ -39,11 +39,31 @@ editor.on('selection-change', (range, oldRange, source) => {
   editor.scrollIntoView(range);
 });
 
-// Load content from localStorage
-const storedContent = localStorage.getItem('editorContent');
-if (storedContent) {
-  const delta = JSON.parse(storedContent);
-  editor.setContents(delta);
+// Initialize the current tab
+let currentTab = 1;
+// Function to toggle between tabs
+function toggleTab() {
+  // Step 1: Save the current editor's content in local storage
+  const currentEditorContents = editor.getContents();
+  localStorage.setItem(`editorContentTab${currentTab}`, JSON.stringify(currentEditorContents));
+  // Step 2: Toggle to the next tab
+  currentTab = currentTab % 3 + 1; // Cycle through tabs 1 -> 2 -> 3 -> 1...
+  // Step 3: Load the content of the new tab from local storage, if available
+  const storedContent = localStorage.getItem(`editorContentTab${currentTab}`);
+  if (storedContent) {
+    editor.setContents(JSON.parse(storedContent)); // Load the stored content into the editor
+  } else {
+    editor.setText(''); // If no content stored, initialize the editor with empty text
+  }
+  // Optionally, update the UI to reflect the current tab
+  // For example, displaying the current tab number somewhere on the page
+  document.getElementById("toggleTab").textContent = `Toggle Tab:  ${currentTab}`;
+  //console.log(`Switched to tab ${currentTab}`);
+}
+// Load the initial content of the first tab upon starting
+const initialStoredContent = localStorage.getItem(`editorContentTab${currentTab}`);
+if (initialStoredContent) {
+  editor.setContents(JSON.parse(initialStoredContent));
 }
 
 // Load theme from localStorage
