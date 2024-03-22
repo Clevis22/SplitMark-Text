@@ -57,7 +57,7 @@ function toggleTab() {
   }
   // Optionally, update the UI to reflect the current tab
   // For example, displaying the current tab number somewhere on the page
-  document.getElementById("toggleTab").textContent = `Toggle Tab:  ${currentTab}`;
+  document.getElementById("toggleTab").textContent = `Tab:  ${currentTab}`;
   //console.log(`Switched to tab ${currentTab}`);
 }
 // Load the initial content of the first tab upon starting
