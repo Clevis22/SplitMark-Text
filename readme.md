@@ -1,19 +1,23 @@
 SplitMark
 =========
 
-No login, no ads just minimalist text editing with markdown superpowers.
+No login, no ads just text editing with markdown superpowers.
 
 About
 -----
 
-SplitMark is a minimalist Quill-based text editor with markdown support. It is designed to be minimal yet powerful, with a clean and simple user interface paired with the capability of markdown and keyboard shortcuts. SplitMark gives you all the power of WYSIWYG rich text editors in an online minimalist package.
+SplitMark is a minimalist, Quill-based online text editor with robust markdown support. It combines a clean and simple user interface with the power of rich-text editing and markdown capabilities, giving you a distraction-free yet powerful writing experience.
+
+While most modern writing apps and websites have become increasingly bloated with complex features, distracting advertisements, and requirements to create accounts, SplitMark takes an intentionally minimal approach. It was inspired by a desire to get back to a distraction-free, privacy-focused online writing experience without the hassle of logins, subscriptions, or intrusive monetization. SplitMark provides the core rich-text editing capabilities you need, wrapped in a clean interface that allows you to simply open and write.
 
 How It Works
 ------------
 
-At its core, SplitMark is a Quill-based text editor. Quill is a free, open-source JavaScript library that allows developers to create rich text editors for the web. Quill also supports third-party modules such as Quilljs-Markdown, which SplitMark uses, along with custom methods to add markdown support to Quill.
+SplitMark is built on top of Quill, a free and open-source rich text editor for the web. It leverages the Quilljs-Markdown module along with custom methods to add full markdown support on top of Quill's WYSIWYG editing capabilities.
 
-All editing on SplitMark happens on the client side, meaning your text never leaves your browser unless you save the content to your device. Saves are stored using the .spmk file extension, which is JSON-based and stores the editor's content using quill-delta. Local storage is also used to store editor content in your browser between sessions.
+All editing on SplitMark happens on the client side, meaning your text never leaves your browser unless you save the content to your device. Saves are stored using the .spmk file extension, which is JSON-based and stores the editor's content using quill-delta. Local storage is also used to store editor content in your browser between sessions. If browser history or data is cleared, saved editor content may be lost. Always download important content using the save button.
+
+SplitMark also contains three tabs to toggle between using the Tabs button. This allows for editing multiple documents without the need for duplicate browser tabs. In fact, it is not recommended to have multiple tabs of SplitMark open at once, as local storage is used for editor-saving content, and if multiple tabs are open, some content may not be saved properly.
 
 All of this, combined with a minimal user interface containing light and dark themes, powerful keyboard shortcuts, and a privacy-focused mentality, creates a distraction-free yet powerful online writing experience.
 
