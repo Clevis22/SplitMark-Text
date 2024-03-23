@@ -32,6 +32,11 @@ pre{
   
 }
 
+.ql-code-block-container{
+  background-color: #f0f0f0 !important;
+  color:black !important;
+}
+
 #wordCountPopup {
   background: #E6E6E6;
   color: #333; 
@@ -216,6 +221,11 @@ pre{
 }
 
 .dark-mode pre{
+  background-color: #2f3236 !important;
+  color:white !important;
+}
+
+.dark-mode .ql-code-block-container{
   background-color: #2f3236 !important;
   color:white !important;
 }

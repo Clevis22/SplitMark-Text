@@ -32,6 +32,7 @@ const editor = new Quill('#editor', {
 
 });
 
+
 editor.on('selection-change', (range, oldRange, source) => {
   if (range === null) return; // Return if there is no range
   if (source !== 'user') return; // Return if the change was not initiated by the user
@@ -96,11 +97,10 @@ try {
   alert("An error occurred while loading the theme. Please enable local storage.");
 }
 
-// Save content to localStorage on text-change
 editor.on('text-change', () => {
   const delta = editor.getContents();
   const stringifiedDelta = JSON.stringify(delta);
-  localStorage.setItem('editorContent', stringifiedDelta);
+  localStorage.setItem(`editorContentTab${currentTab}`, stringifiedDelta); // Use dynamic key based on currentTab
 });
 
 const exportFunction = () => {
@@ -129,6 +129,7 @@ const exportFunction = () => {
     // You can display an error message to the user here
   }
 };
+
 
 const loadFromFile = () => {
   const fileInput = document.createElement('input');
