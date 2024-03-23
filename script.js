@@ -40,6 +40,7 @@ editor.on('selection-change', (range, oldRange, source) => {
   editor.scrollIntoView(range);
 });
 
+
 // Initialize the current tab
 let currentTab = 1;
 
