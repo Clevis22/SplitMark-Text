@@ -269,6 +269,19 @@ editor.on('text-change', function(delta, oldDelta, source) {
             // Remove underline formatting for new text outside tags
             editor.formatText(cursorIndex, 0, { 'underline': false });
 
+
+      const isTextDeleted = delta.ops.some(op => op.retain && op.attributes && op.attributes.underline === false);
+
+      if (isTextDeleted) {
+          const currentSelection = editor.getSelection();
+          const cursorIndex = currentSelection ? currentSelection.index : 0;
+
+          // Remove underline formatting at the cursor position
+          editor.formatText(cursorIndex, 0, { 'underline': false });
+
+          // Remove alignment formatting at the cursor position
+          alignText('');
+      }
     }
 });
 
